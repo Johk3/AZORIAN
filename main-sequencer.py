@@ -45,11 +45,11 @@ rna_codon_to_amino_acid = {"UUU" : "Phe", "UUC" : "Phe", "UUA" : "Leu", "UUG" : 
                         "GCA" : "Ala", "GCA" : "Ala", "GCG" : "Ala", "GAU" : "Asp", "GAC" : "Asp", "GAA" : "Glu",
                         "GAG" : "Glu", "GGU" : "Gly", "GGC" : "Gly", "GGA" : "Gly", "GGG" : "Gly"}
 
-time.sleep(3)
+#time.sleep(3)
 print("\n\nWelcome")
 print("\n\nThis is the Azorian Project")
 print("\n\nMade by BIO-LOGYK©")
-time.sleep(3)
+#time.sleep(3)
 
 def new():
     print("\n\nSelect below which options you want\n\n")
@@ -57,9 +57,9 @@ def new():
 
     choice = input()
 
-    if (choice == "Sequence Input"):
+    if (choice.lower() == "sequence input"):
         print("\n\nGoing to Sequence Input")
-        time.sleep(3)
+        #time.sleep(3)
 
         while True:
             print("\n\nEnter a sequence to begin: (blank to quit)")
@@ -67,8 +67,16 @@ def new():
             if sequenceI == "":
                 break
 
-            if sequenceI in dna_codon_to_amino_acid:
-                print(dna_codon_to_amino_acid[sequenceI] + " gives the protien value of " + sequenceI)
+            check_point = 0
+            to_point = 3
+
+            for i in range(int(len(sequenceI) / 3)):
+                if sequenceI[check_point:to_point] in dna_codon_to_amino_acid:
+                    print(dna_codon_to_amino_acid[
+                              sequenceI[check_point:to_point]] + " gives the protien value of " + sequenceI[
+                                                                                                  check_point:to_point])
+                check_point += 3
+                to_point += 3
 
             # else:
             # print("I do not have enough information " +sequenceI)
@@ -98,9 +106,9 @@ print(', '.join(Options_List))
 
 choice = input()
 
-if (choice == "Sequence Input"):
+if (choice.lower() == "sequence input"):
     print("\n\nGoing to Sequence Input")
-    time.sleep(3)
+    #time.sleep(3)
 
     while True:
         print("\n\nEnter a sequence to begin: (blank to quit)")
@@ -108,8 +116,14 @@ if (choice == "Sequence Input"):
         if sequenceI == "":
             break
 
-        if sequenceI in dna_codon_to_amino_acid:
-            print(dna_codon_to_amino_acid[sequenceI] + " gives the protien value of " + sequenceI)
+        check_point = 0
+        to_point = 3
+
+        for i in range(int(len(sequenceI) / 3)):
+            if sequenceI[check_point:to_point] in dna_codon_to_amino_acid:
+                print(dna_codon_to_amino_acid[sequenceI[check_point:to_point]] + " gives the protien value of " + sequenceI[check_point:to_point])
+            check_point += 3
+            to_point += 3
 
         # else:
         # print("I do not have enough information " +sequenceI)
