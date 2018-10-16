@@ -74,11 +74,13 @@ def new():
             for i in range(int(len(sequenceI) / 3)):
                 if sequenceI[check_point:to_point] in dna_codon_to_amino_acid:
                     print(dna_codon_to_amino_acid[
-                              sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[check_point:to_point])
-                if sequenceII[check_point:to_point] in rna_codon_to_amino_acid:
+                              sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[
+                                                                                                check_point:to_point])
+                elif sequenceI[check_point:to_point] in rna_codon_to_amino_acid:
                     print(rna_codon_to_amino_acid[
-                              sequenceII[check_point:to_point]] + " gives the Codon value of " + sequenceII[
-                                                                                                 check_point:to_point])
+                              sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[
+                                                                                                check_point:to_point])
+
                 check_point += 3
                 to_point += 3
 
