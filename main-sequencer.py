@@ -75,24 +75,12 @@ def new():
                 if sequenceI[check_point:to_point] in dna_codon_to_amino_acid:
                     print(dna_codon_to_amino_acid[
                               sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[check_point:to_point])
+                if sequenceII[check_point:to_point] in rna_codon_to_amino_acid:
+                    print(rna_codon_to_amino_acid[
+                              sequenceII[check_point:to_point]] + " gives the Codon value of " + sequenceII[
+                                                                                                 check_point:to_point])
                 check_point += 3
                 to_point += 3
-
-            while True:
-                print("\n\nEnter a sequence to begin: (blank to quit)")
-                sequenceII = input()
-                if sequenceII == "":
-                    break
-
-                check_point = 0
-                to_point = 3
-
-                for i in range(int(len(sequenceII) / 3)):
-                    if sequenceII[check_point:to_point] in rna_codon_to_amino_acid:
-                        print(rna_codon_to_amino_acid[
-                                  sequenceII[check_point:to_point]] + " gives the Codon value of " + sequenceII[check_point:to_point])
-                    check_point += 3
-                    to_point += 3
 
             # else:
             # print("I do not have enough information " +sequenceI)
@@ -121,7 +109,8 @@ print("\n\nSelect below which options you want\n\n")
 print(', '.join(Options_List))
 
 choice = input()
-
+############################################
+#Fixed by the fish fin called Johannes Leppäkorpi
 if (choice.lower() == "sequence input"):
     print("\n\nGoing to Sequence Input")
     # time.sleep(3)
@@ -140,26 +129,13 @@ if (choice.lower() == "sequence input"):
                 print(dna_codon_to_amino_acid[
                           sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[
                                                                                             check_point:to_point])
+            elif sequenceI[check_point:to_point] in rna_codon_to_amino_acid:
+                print(rna_codon_to_amino_acid[
+                        sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[
+                                                                                                 check_point:to_point])
+
             check_point += 3
             to_point += 3
-
-        while True:
-            print("\n\nEnter a sequence to begin: (blank to quit)")
-            sequenceII = input()
-            if sequenceII == "":
-                break
-
-            check_point = 0
-            to_point = 3
-
-            for i in range(int(len(sequenceII) / 3)):
-                if sequenceII[check_point:to_point] in rna_codon_to_amino_acid:
-                    print(rna_codon_to_amino_acid[
-                              sequenceII[check_point:to_point]] + " gives the Codon value of " + sequenceII[
-                                                                                                 check_point:to_point])
-                check_point += 3
-                to_point += 3
-
         # else:
         # print("I do not have enough information " +sequenceI)
         # print("\n\nWhat is the sequence again")
