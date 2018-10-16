@@ -10,9 +10,10 @@ __email__ = "thekoolaidmannn@gmail.com , ," # Include Johanne's Email
 __status__ = "Production"
 __name__ = "AZORIAN"
 __dates__ = "October 2 - October 14"
-__company__ = "Bio-Logic"
+__company__ = "Bio-Logyk"
 
 import sys
+import wikipedia
 import time
 
 Options_List = ["Sequence Input", "Animal Info", "Add New Document"]  # Add more things to this list
@@ -73,10 +74,25 @@ def new():
             for i in range(int(len(sequenceI) / 3)):
                 if sequenceI[check_point:to_point] in dna_codon_to_amino_acid:
                     print(dna_codon_to_amino_acid[
-                              sequenceI[check_point:to_point]] + " gives the protien value of " + sequenceI[
-                                                                                                  check_point:to_point])
+                              sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[check_point:to_point])
                 check_point += 3
                 to_point += 3
+
+            while True:
+                print("\n\nEnter a sequence to begin: (blank to quit)")
+                sequenceII = input()
+                if sequenceII == "":
+                    break
+
+                check_point = 0
+                to_point = 3
+
+                for i in range(int(len(sequenceII) / 3)):
+                    if sequenceII[check_point:to_point] in rna_codon_to_amino_acid:
+                        print(rna_codon_to_amino_acid[
+                                  sequenceII[check_point:to_point]] + " gives the Codon value of " + sequenceII[check_point:to_point])
+                    check_point += 3
+                    to_point += 3
 
             # else:
             # print("I do not have enough information " +sequenceI)
@@ -88,6 +104,9 @@ def new():
     elif (choice == "Animal Info"):
         print("\n\nGoing to Animal Info")
         time.sleep(3)
+        print("Enter an animal you want more info on")
+        animal = input()
+        print(wikipedia.summary(animal))
 
     elif (choice == "Add New Document"):
         print("\n\nSetting up Document")
@@ -98,9 +117,6 @@ def new():
         time.sleep(3)
         new()
 
-
-    # This is a sequence input || seqI = input()
-
 print("\n\nSelect below which options you want\n\n")
 print(', '.join(Options_List))
 
@@ -108,7 +124,7 @@ choice = input()
 
 if (choice.lower() == "sequence input"):
     print("\n\nGoing to Sequence Input")
-    #time.sleep(3)
+    # time.sleep(3)
 
     while True:
         print("\n\nEnter a sequence to begin: (blank to quit)")
@@ -121,9 +137,28 @@ if (choice.lower() == "sequence input"):
 
         for i in range(int(len(sequenceI) / 3)):
             if sequenceI[check_point:to_point] in dna_codon_to_amino_acid:
-                print(dna_codon_to_amino_acid[sequenceI[check_point:to_point]] + " gives the protien value of " + sequenceI[check_point:to_point])
+                print(dna_codon_to_amino_acid[
+                          sequenceI[check_point:to_point]] + " gives the Codon value of " + sequenceI[
+                                                                                            check_point:to_point])
             check_point += 3
             to_point += 3
+
+        while True:
+            print("\n\nEnter a sequence to begin: (blank to quit)")
+            sequenceII = input()
+            if sequenceII == "":
+                break
+
+            check_point = 0
+            to_point = 3
+
+            for i in range(int(len(sequenceII) / 3)):
+                if sequenceII[check_point:to_point] in rna_codon_to_amino_acid:
+                    print(rna_codon_to_amino_acid[
+                              sequenceII[check_point:to_point]] + " gives the Codon value of " + sequenceII[
+                                                                                                 check_point:to_point])
+                check_point += 3
+                to_point += 3
 
         # else:
         # print("I do not have enough information " +sequenceI)
@@ -135,6 +170,9 @@ if (choice.lower() == "sequence input"):
 elif (choice == "Animal Info"):
     print("\n\nGoing to Animal Info")
     time.sleep(3)
+    print("Enter an animal you want more info on")
+    animal = input()
+    print(wikipedia.summary(animal))
 
 elif (choice == "Add New Document"):
     print("\n\nSetting up Document")
@@ -144,6 +182,3 @@ else:
     print("\n\nLooks like you selected none of the inputs that are available try again")
     time.sleep(3)
     new()
-
-
-# This is a sequence input || seqI = input()
