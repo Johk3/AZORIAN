@@ -145,14 +145,14 @@ if (choice.lower() == "sequence input"):
         # dna_codon_to_amino_acid[sequenceI] = sequenceII
         # print("\n\nUpdated")
 
-elif (choice == "Animal Info"):
+elif (choice.lower() == "animal info"):
     print("\n\nGoing to Animal Info")
     time.sleep(3)
     print("Enter an animal you want more info on")
     animal = input()
     print(wikipedia.summary(animal))
 
-elif (choice == "Add New Document"):
+elif (choice.lower() == "add new document"):
     print("\n\nSetting up Document")
     time.sleep(3)
 
